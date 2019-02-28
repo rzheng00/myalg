@@ -82,6 +82,86 @@ public class Int_To_Roman {
 		return inRoman.toString();
 	}
 
+	public String intToRoman2 (int num) {
+		StringBuilder inRoman = new StringBuilder("");
+		int startWith = 1000;
+		
+		if (num > Math.pow(2, 32) || num <= 0) {
+			return "invalid integer";
+		} else if (num >5000) {
+			return "too large for Roman Numerals";
+		} else {
+			//1000s
+			int thousand = num/1000;
+			if (thousand >0) {
+				for (int i=1; i<=thousand; i++) {
+					inRoman.append("M");
+				}
+			}
+			
+			//100s
+			int hundard = (num - thousand*1000)/100;
+			
+			if (hundard >0) {
+				if(hundard == 9) {
+					inRoman.append("CM");
+				} else if(hundard >=5) {
+					inRoman.append("D");
+					for (int i=1; i<=hundard-5; i++) {
+						inRoman.append("C");
+					}
+				} else if (hundard == 4){
+					inRoman.append("CD");
+				} else {
+					for (int i=1; i<=hundard; i++) {
+						inRoman.append("C");
+					}
+				}
+			}
+			
+			//10s
+			int ten = (num - thousand*1000 - hundard *100)/10;
+			if (ten > 0) {				
+				if (ten == 9) {
+					inRoman.append("XC");
+				} else if(ten >=5) {
+					inRoman.append("L");
+					for (int i=1; i<=ten-5; i++) {
+						inRoman.append("X");
+					}
+				} else if (ten == 4){
+					inRoman.append("XL");
+				} else {
+					for (int i=1; i<=ten; i++) {
+						inRoman.append("X");
+					}
+				}
+			}
+			
+			// 1s
+			int one = (num - thousand*1000 - hundard *100 - ten *10);
+			if (one>0) {
+				if (one == 9) {
+					inRoman.append("IX");
+				} else if(one >=5) {
+					inRoman.append("V");
+					for (int i=1; i<= one-5; i++) {
+						inRoman.append("I");
+					}
+				} else if (one == 4){
+					inRoman.append("IV");
+				} else {
+					for (int i=1; i<= one; i++) {
+						inRoman.append("I");
+					}
+				}
+			}
+		}
+		
+		
+		return inRoman.toString();
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Int_To_Roman itr = new Int_To_Roman();
