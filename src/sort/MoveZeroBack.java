@@ -5,9 +5,11 @@ import java.util.Arrays;
 public class MoveZeroBack {
 	public void sorting(int[] nums) {
 //		System.out.println(Arrays.toString(nums));
+		int countZeros =0;
 		for (int i=nums.length-2; i>=0; i--) {
 			if (nums[i] == 0) {
-				for (int j=i; j<=nums.length-2; j++) {
+				countZeros ++;
+				for (int j=i; j<=nums.length-1; j++) {
 					nums[j] = nums[j+1];
 					nums[j+1] = 0;
 				}

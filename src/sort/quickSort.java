@@ -9,7 +9,7 @@ public class quickSort {
 		int pivot = nums[right];
 		int i = left-1;
 		for (int j = left; j < right; j++ ) {
-			if(nums[j]>=pivot) {
+			if(nums[j]<=pivot) {
 				i++;
 				int temp = nums[i];
 				nums[i] = nums[j];

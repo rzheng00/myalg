@@ -16,7 +16,10 @@ public class LinkedListSample {
 		
 		al.add("item1");
 		al.add("item2");
+		al.add("item3");
 		ll.addAll(al);
+		System.out.println("index of "+ al.indexOf("item2"));
+		
 		/*Display Linked List Content*/
 	    System.out.println("Linked List Content: " +ll);
 	    
@@ -35,6 +38,16 @@ public class LinkedListSample {
 	    System.out.println("Linked List Content 3: " +ll);
 	    ll.remove(5);
 	    System.out.println("Linked List Content 4: " +ll);
+	    
+	    Collections.reverse(ll);
+	    System.out.println("Linked List Content 5: " +ll);
+	    
+	    LinkedList<int[]> lla= new LinkedList<int[]>();
+	    
+	    lla.add(new int[] {1,2});
+	    lla.add(new int[] {3,4});
+	    System.out.println("Linked List Content 6: " +Arrays.deepToString(lla.toArray()));
+	    
 	    
 	}
 
